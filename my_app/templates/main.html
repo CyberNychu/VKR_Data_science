@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Прогноз значения соотношения матрица-наполнитель</title>
+</head>
+<body>
+    <h1 style="color:#093341; font-family:verdana;">Расчет соотношения матрица-наполнитель</h1>
+    <form action="{{url_for('main')}}" method="POST">
+    <fieldset>
+        <legend>Введите параметры</legend>
+    <p>
+	    <label for="x_1">Введите Плотность, кг/м3</label>
+	    <input type="float" name="plot" required>
+    </p><p>
+	    <label for="x_2">Введите Модуль упругости, ГПа</label>
+	    <input type="float" name="m_uprg"  required>
+    </p><p>
+	    <label for="x_3">Введите Количество отвердителя, м.%</label>
+	    <input type="float" name="otv" required>
+    </p><p>
+        <label for="x_4">Введите Поверхностная плотность, г/м2</label>
+	    <input type="float" name="popv" required>
+    </p><p>
+        <label for="x_5">Введите Модуль упругости при растяжении, ГПа</label>
+	    <input type="float" name="mupr" required>
+    </p><p>
+        <label for="x_6">Введите Прочность при растяжении, МПа</label>
+	    <input type="float" name="pr_ras" required>
+    </p><p>
+        <label for="x_7">Введите Шаг нашивки</label>
+	    <input type="float" name="s_nash" required>
+    </p><p>
+        <label for="x_8">Введите Плотность нашивки</label>
+	    <input type="float" name="pl_nash" required>
+    </p><p>
+        <label for="x_9">Введите Угол нашивки 0 градусов (введите 1 если угол нашивки равен 0 градусам и 0 если угол нашивки равен 90 градусам)</label>
+	    <input type="float" name="ug_0" required>
+    </p><p>
+        <label for="x_10">Введите Угол нашивки 90 градусов (введите 1 если угол нашивки равен 90 градусам и 0 если угол нашивки равен 0 градусам)</label>
+	    <input type="float" name="ug_90" required>
+    </p><p>
+        <label for="x_11">Введите Содержание эпоксидных групп, грамм</label>
+	    <input type="float" name="seg" required>
+    </p><p>
+        <label for="x_12">Введите Потребление смолы, г/м2 без ЭГ</label>
+	    <input type="float" name="psmol" required>
+	</p>
+    </fieldset>
+	<p>
+	    <input type="submit" value="Рассчитать">
+        <input type="reset">
+	</p>
+    </form>
+    <p>
+    {% if result %}
+        <p><b>{{result}}</b></p>
+    {% endif %}
+    </p>
+</body>
